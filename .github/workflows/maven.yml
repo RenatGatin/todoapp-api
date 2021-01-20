@@ -8,7 +8,7 @@ env:
   MYSQL_DATABASE: athena
   MYSQL_USER: athena
   MYSQL_PASSWORD: athena
-  MYSQL_HOST: mysql-server
+  MYSQL_HOST: localhost
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      mysql-server:
+      localhost:
         image: mysql:5.7
         ports:
           - 3306/tcp
@@ -32,7 +32,7 @@ jobs:
           MYSQL_PASSWORD: ${{ env.MYSQL_PASSWORD }}
           MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_PASSWORD }}
         options: >-
-          --name=mysql-server
+          --name=localhost
           --health-cmd="mysqladmin ping"
           --health-interval=10s
           --health-timeout=5s
