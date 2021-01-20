@@ -3,13 +3,6 @@
 
 name: Java CI with Maven
 
-# Environment variables for this workflow
-env:
-  MYSQL_DATABASE: athena
-  MYSQL_USER: athena
-  MYSQL_PASSWORD: athena
-  MYSQL_HOST: localhost
-
 on:
   push:
     branches: [ master, develop ]
@@ -17,26 +10,9 @@ on:
     branches: [ master, develop ]
 
 jobs:
-  ci:
+  build:
 
     runs-on: ubuntu-latest
-
-    services:
-      localhost:
-        image: mysql:5.7
-        ports:
-          - 3306/tcp
-        env:
-          MYSQL_DATABASE: ${{ env.MYSQL_DATABASE }}
-          MYSQL_USER: ${{ env.MYSQL_USER }}
-          MYSQL_PASSWORD: ${{ env.MYSQL_PASSWORD }}
-          MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_PASSWORD }}
-        options: >-
-          --name=localhost
-          --health-cmd="mysqladmin ping"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=3
 
     steps:
       - uses: actions/checkout@v2
