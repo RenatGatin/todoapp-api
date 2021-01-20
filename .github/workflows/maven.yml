@@ -22,5 +22,6 @@ jobs:
           java-version: '11'
       - name: Build with Maven
         run: mvn -B package --file pom.xml
-      - name: Super-Liter
-        uses: github/super-linter@2.1.0
+      - name: Super-Linter
+        uses: github/super-linter@v3.14.0
+
