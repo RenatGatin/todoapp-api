@@ -51,4 +51,4 @@ jobs:
         env:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: master
-          GITHUB_TOKEN: ${{ 08b0197995350fb65c4ee4920bec50cbc30d38ca }}
+          GITHUB_TOKEN: 08b0197995350fb65c4ee4920bec50cbc30d38ca
