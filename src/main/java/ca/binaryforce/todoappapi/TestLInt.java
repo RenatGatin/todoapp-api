@@ -8,6 +8,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TestLInt {
+
+    /**
+     * Test JavaDoc for goodName.
+     */
     private String goodName;
     private boolean isActive;
 }
