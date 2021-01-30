@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TestLInt {
-    private   String   fbfadgwer242rfea;
-    private  boolean adsfasdfas;
+    private String goodName;
+    private boolean isActive;
 }
