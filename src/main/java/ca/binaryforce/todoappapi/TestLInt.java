@@ -13,5 +13,9 @@ public class TestLInt {
      * Test JavaDoc for goodName.
      */
     private String goodName;
+
+    /**
+     * Test JavaDoc for isActive.
+     */
     private boolean isActive;
 }
