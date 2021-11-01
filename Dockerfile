@@ -1,4 +1,5 @@
 FROM adoptopenjdk/openjdk11:alpine
-ADD target/todoapp-api-0.0.1-SNAPSHOT.jar todoapp-api.jar
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} todoapp-api.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar" , "todoapp-api.jar"]
