@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  mysql-bf:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=athena
+      - MYSQL_PASSWORD=athena
+      - MYSQL_DATABASE=athena
+    ports:
+      - "3307:3306"
+
+  springboot-bf:
+    image: todoapp-api-docker
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql-bf:3306/athena"
+      SPRING_DATASOURCE_USERNAME: "athena"
+      SPRING_DATASOURCE_PASSWORD: "athena"
+    build:
+      context: "./"
+      dockerfile: "Dockerfile"
+    depends_on:
+      - mysql-bf
+
+
