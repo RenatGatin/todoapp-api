@@ -13,6 +13,6 @@ public class TestController {
      */
     @RequestMapping("/hello")
     public String sayHello() {
-        return "Hello Binary World! 2";
+        return "Hello Binary World! 3";
     }
 }
