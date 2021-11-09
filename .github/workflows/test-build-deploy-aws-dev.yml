@@ -12,7 +12,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
       - name: Run test-build-deploy-aws template workflow
-        uses: ./.github/workflows/templates/test-build-deploy-workflow
+        uses: RenatGatin/todoapp-api/.github/workflows/templates/test-build-deploy-workflow.yml
         with:
           branch: dev
           environment: develop
