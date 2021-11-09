@@ -1,5 +1,7 @@
 # Reusable workflow for test-build-deploy on AWS ECS
 
+############   MERGE ALWAYS TO MASTER  #############
+
 name: Test, Build and Deploy
 
 on:
@@ -17,10 +19,10 @@ on:
 env:
   AWS_REGION: us-east-1
   ECR_REPOSITORY: todoapp-api
-  ECS_SERVICE: todoapp-api-service-${{input.branch}}
-  ECS_CLUSTER: todoapp-api-cluster-${{input.branch}}
-  ECS_TASK_DEFINITION: .aws/task-definition-${{input.branch}}.json
-  CONTAINER_NAME: todoapp-api-container-${{input.branch}}
+  ECS_SERVICE: todoapp-api-service-${{inputs.branch}}
+  ECS_CLUSTER: todoapp-api-cluster-${{inputs.branch}}
+  ECS_TASK_DEFINITION: .aws/task-definition-${{inputs.branch}}.json
+  CONTAINER_NAME: todoapp-api-container-${{inputs.branch}}
 
 jobs:
   test:
@@ -40,7 +42,7 @@ jobs:
     name: Deploy
     needs: test
     runs-on: ubuntu-latest
-    environment: ${{input.environment}}
+    environment: ${{inputs.environment}}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -65,7 +67,7 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          IMAGE_TAG: ${{input.environment}}
+          IMAGE_TAG: ${{inputs.environment}}
         run: |
           # Build a docker container and
           # push it to ECR so that it can
