@@ -8,7 +8,6 @@ on:
 jobs:
   test-build-deploy:
     name: Run test-build-deploy-aws template workflow
-    uses: RenatGatin/todoapp-api/.github/workflows/test-build-deploy-workflow.yml@master
+    uses: RenatGatin/todoapp-api/.github/workflows/workflow-test.yml@master
     with:
-      branch: dev
-      environment: develop
+      branch: develop
