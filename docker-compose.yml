@@ -13,7 +13,7 @@ services:
       - "3307:3306"
 
   springboot-bf:
-    image: todoapp-api-docker
+    image: todoapp-api
     ports:
       - "8080:8080"
     environment:
