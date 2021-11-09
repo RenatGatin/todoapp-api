@@ -7,12 +7,8 @@ on:
 
 jobs:
   test-build-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Run test-build-deploy-aws template workflow
-        uses: RenatGatin/todoapp-api/.github/workflows/templates/test-build-deploy-workflow.yml@main
-        with:
-          branch: dev
-          environment: develop
+    name: Run test-build-deploy-aws template workflow
+    uses: RenatGatin/todoapp-api/.github/workflows/templates/test-build-deploy-workflow.yml@main
+    with:
+      branch: dev
+      environment: develop
