@@ -6,6 +6,13 @@ on:
       - develop
 
 jobs:
+  checkout:
+    name: Checkout code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
   test-build-deploy:
     name: Run test-build-deploy-aws template workflow
     uses: RenatGatin/todoapp-api/.github/workflows/workflow-test.yml@master
