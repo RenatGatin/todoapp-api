@@ -40,11 +40,18 @@ env:
   CONTAINER_NAME: todoapp-api-container-dev
 
 jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: print a value
+        runs: echo Hello from Pehat
+
   deploy:
     name: Deploy
+    needs: test
     runs-on: ubuntu-latest
-    environment: production
-
+    environment: develop
     steps:
       - name: Checkout
         uses: actions/checkout@v2
