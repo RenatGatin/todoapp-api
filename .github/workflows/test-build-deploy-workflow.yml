@@ -7,8 +7,12 @@ name: Test, Build and Deploy
 on:
   workflow_call:
     inputs:
-      branch:
+      suffix:
         description: dev | qa | prod
+        required: true
+        type: string
+      branch:
+        description: develop | release | master
         required: true
         type: string
       environment:
