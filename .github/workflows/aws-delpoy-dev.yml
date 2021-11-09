@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print a value
-        runs: echo Hello from Pehat
+        run: echo Hello from Pehat
 
   deploy:
     name: Deploy
