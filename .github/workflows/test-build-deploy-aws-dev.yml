@@ -8,8 +8,10 @@ on:
 jobs:
   test-build-deploy:
     runs-on: ubuntu-latest
-
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Run test-build-deploy-aws template workflow
       - uses: ./.github/workflows/test-build-deploy-aws-dev.yml
         with:
           branch: dev
