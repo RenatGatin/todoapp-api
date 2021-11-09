@@ -1,0 +1,16 @@
+name: Test, Build and Deploy to Amazon ECS Develop
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  test-build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: ./.github/workflows/test-build-deploy-aws-dev.yml
+        with:
+          branch: dev
+          environment: develop
