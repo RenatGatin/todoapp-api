@@ -1,0 +1,66 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "environment": [
+        {
+          "name": "MYSQL_ROOT_PASSWORD",
+          "value": "root"
+        },
+        {
+          "name": "MYSQL_USER",
+          "value": "athena"
+        },
+        {
+          "name": "MYSQL_PASSWORD",
+          "value": "athena"
+        },
+        {
+          "name": "MYSQL_DATABASE",
+          "value": "athena"
+        }
+      ],
+      "essential": true,
+      "image": "mysql:8.0",
+      "name": "database",
+      "portMappings": [
+        {
+          "containerPort": 3306,
+          "hostPort": 3307
+        }
+      ],
+      "memory": 100
+    },
+    {
+      "environment": [
+        {
+          "name": "SPRING_DATASOURCE_URL",
+          "value": "jdbc:mysql://mysql-bf:3306/athena"
+        },
+        {
+          "name": "SPRING_DATASOURCE_USERNAME",
+          "value": "athena"
+        },
+        {
+          "name": "SPRING_DATASOURCE_PASSWORD",
+          "value": "athena"
+        }
+      ],
+      "essential": true,
+      "image": "renatgatin/todoapp-api-docker:develop",
+      "name": "todoapp-api",
+      "links": [
+        "database"
+      ],
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 8080
+        }
+      ],
+      "memory": 100
+    }
+  ],
+  "family": "",
+  "volumes": []
+}
